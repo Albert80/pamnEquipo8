@@ -53,7 +53,7 @@ public class DDNewton{
 	}
 
 	/** 
-	*	Metodo para establecer Y
+	*	Metodo para establecer el polinomio
 	*	@return: void
 	*	@param: real
 	*/
