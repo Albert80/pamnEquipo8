@@ -41,7 +41,7 @@ public class test{
 		double [][]sistemaEc = { {1, 2, 3},
 								 {-2, -4, 8},
 								 {3, 1, 2} };
-		Gauss matrix = new Gauss(3);
+		Gauss matrix = new Gauss(soluciones.length);
 		System.out.println("\t\t-+-+-+-+-GAUSS METHOD-+-+-+-+-");
 		matrix.setB(soluciones);
 		matrix.setA(sistemaEc);
@@ -62,14 +62,14 @@ public class test{
 		double [][]sistemaEcGJ = { {1, 2, 3},
 								 {-2, -4, 8},
 								 {3, 1, 2} };
-		GaussJordan matrix_2 = new GaussJordan(3);
+		GaussJordan matrix_2 = new GaussJordan(solucionesGJ.length);
 		System.out.println("\n\n\t\t-+-+-+-+-GAUSS-JORDAN METHOD-+-+-+-+-");
 		matrix_2.setB(solucionesGJ);
 		matrix_2.setA(sistemaEcGJ);
 		solGJ = matrix_2.getX();
 		System.out.println("\n-->Gauss-Jordan Solutions, X:");
-		for (int i = 0; i < solGJ.length; i++) {
-			System.out.print("Variable " + (i+1) + " >>>\t" + Math.rint(solGJ[i]*10000)/10000);
+		for (int j = 0; j < solGJ.length; j++) {
+			System.out.print("Variable " + (j+1) + " >>>\t" + Math.rint(solGJ[j]*10000)/10000);
 			System.out.println();
 		}
 		//*/
@@ -95,6 +95,19 @@ public class test{
 		System.out.println("-->Resultado de Bisección: " + Math.rint(resul*10000)/10000);
 		//*/
 
-
+		///*
+		//+-------------Bisección-----------------+//
+		System.out.println("\n\n\t\t-+-+-+-+-DDNewton-+-+-+-+-");
+		DDNewton ej = new DDNewton(2.4);
+		double x[] = {0.1, 0.4, 0.7, 1};
+		double y[] = {2.31, 3.36, 4.59, 6};
+		double coef[];
+		ej.setX(x);
+		ej.setY(y);
+		coef = ej.getPolinomio();
+		System.out.println("DDNewton");
+		for (int k = 0; k < x.length; k++) {
+			System.out.println("b"+ k + ": " + coef[k]);
+		}
 	}
 }
